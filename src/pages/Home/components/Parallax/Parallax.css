@@ -1,0 +1,88 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10%);
+    opacity: 0.7;
+  }
+
+  70% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.parallax-root {
+  flex-grow: 1;
+  flex-shrink: 0;
+  height: auto;
+  position: relative;
+}
+
+.parallax-cloud1 {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  z-index: 5;
+
+  animation: bounce 10s infinite;
+}
+
+.parallax-cloud2 {
+  position: absolute;
+  left: 32%;
+  bottom: 81%;
+
+  animation: bounce 12s infinite;
+}
+
+.parallax-cloud3 {
+  position: absolute;
+  left: 60%;
+  top: 2%;
+  z-index: 3;
+
+  animation: bounce 14s infinite;
+}
+
+.parallax-cloud4 {
+  position: absolute;
+  top: 24.38%;
+  right: -12%;
+
+  animation: bounce 8s infinite;
+}
+
+.parallax-cloud5 {
+  position: absolute;
+  top: 20%;
+  right: 60%;
+  z-index: 3;
+
+  animation: bounce 16s infinite;
+}
+
+.parallax-cloud6 {
+  position: absolute;
+  top: 50%;
+  right: -30%;
+  z-index: 5;
+
+  animation: bounce 16s infinite;
+}
+
+.parallax-skillbox {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  width: 400px;
+  opacity: 0.8;
+  border-radius: 20px;
+  z-index: 3;
+}

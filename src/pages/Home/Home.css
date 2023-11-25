@@ -1,0 +1,18 @@
+.home-root {
+  display: flex;
+  height: 100%;
+}
+
+.home-header {
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.home-paragraph {
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 24px;
+}

@@ -1,0 +1,14 @@
+.nav-root {
+  display: flex;
+  column-gap: 16px;
+}
+
+.nav-root button,
+.nav-root button:active {
+  min-width: unset;
+  font-size: 24px;
+  box-shadow: none;
+  height: unset;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
