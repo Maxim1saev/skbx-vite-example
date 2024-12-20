@@ -27,8 +27,7 @@ function App() {
   const onSubmit = () => {
     // refRecaptcha.current.callbacks.reset();
     // refRecaptcha.current.callbacks.execute();
-
-    window.smartCaptcha.execute();
+    if (window.smartCaptcha) window.smartCaptcha.execute();
   };
 
   return resolved ? (
