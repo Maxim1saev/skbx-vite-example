@@ -1,21 +1,37 @@
+import { useCallback, useState } from "react";
+
 import "./App.css";
 
-import Header from "./components/Header/Header";
-import HomePage from "./pages/Home";
-import PostsPage from "./pages/Posts";
-import { Route, Routes } from "react-router-dom";
-
+import { InvisibleSmartCaptcha } from "@yandex/smart-captcha";
 function App() {
+  const [token, setToken] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  const handleChallengeHidden = useCallback(() => setVisible(false), []);
+
+  const [resetCaptcha, setResetCaptcha] = useState(0);
+
+  /* Update the state */
+  const handleReset = () => setResetCaptcha((prev) => prev + 1);
+
+  const handleButtonClick = () => {
+    setVisible(true);
+    handleReset();
+  };
   return (
     <>
-      <Header />
-
-      <main className={"app-content"}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="posts" element={<PostsPage />} />
-        </Routes>
-      </main>
+      <button onClick={handleButtonClick}>Validate</button>
+      {token}
+      <InvisibleSmartCaptcha
+        key={resetCaptcha}
+        sitekey="ysc1_WGR4Qb2tB0cJkL856mev1X9T9zCZQo7NYMWD0iza5e9b7dc3"
+        onSuccess={(token) => {
+          setToken(token);
+        }}
+        onChallengeHidden={handleChallengeHidden}
+        visible={visible}
+        // test
+      />
     </>
   );
 }
