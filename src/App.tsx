@@ -1,23 +1,23 @@
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 
-import { InvisibleSmartCaptcha } from "@yandex/smart-captcha";
-import GoogleRecaptcha from "react-google-invisible-recaptcha";
+// import { InvisibleSmartCaptcha } from "@yandex/smart-captcha";
+// import GoogleRecaptcha from "react-google-invisible-recaptcha";
 function App() {
   const [value, setValue] = useState("");
   const [resolved, setResolved] = useState(false);
 
-  const refRecaptcha = useRef(null);
+  // const refRecaptcha = useRef(null);
 
-  const onResolved = () => {
-    // alert(
-    //   name +
-    //     ": Recaptcha resolved with response: " +
-    //     refRecaptcha.current.callbacks.getResponse()
-    // );
-    setResolved(true);
-  };
+  // const onResolved = () => {
+  //   // alert(
+  //   //   name +
+  //   //     ": Recaptcha resolved with response: " +
+  //   //     refRecaptcha.current.callbacks.getResponse()
+  //   // );
+  //   setResolved(true);
+  // };
 
   const onRestart = () => {
     setValue("");
@@ -27,6 +27,8 @@ function App() {
   const onSubmit = () => {
     // refRecaptcha.current.callbacks.reset();
     // refRecaptcha.current.callbacks.execute();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     if (window.smartCaptcha) window.smartCaptcha.execute();
   };
 
