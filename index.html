@@ -1,13 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+
+    <script
+      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      defer
+    ></script>
   </head>
   <body>
+    <div id="captcha" style="height: 100px"></div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // function onloadFunction() {
+      //   if (window.smartCaptcha) {
+      //     const container = document.getElementById("captcha");
+
+      //     const widgetId = window.smartCaptcha.render(container, {
+      //       sitekey: "ysc1_WGR4Qb2tB0cJkL856mev1X9T9zCZQo7NYMWD0iza5e9b7dc3",
+      //       hl: "ru",
+      //     });
+      //   }
+      // }
+
+      function onloadFunction() {
+        if (!window.smartCaptcha) {
+          return;
+        }
+
+        window.smartCaptcha.render("captcha", {
+          sitekey: "ysc1_WGR4Qb2tB0cJkL856mev1X9T9zCZQo7NYMWD0iza5e9b7dc3",
+          invisible: true, // Сделать капчу невидимой
+          callback: callback,
+        });
+      }
+
+      function callback(token) {
+        console.log("token", token);
+      }
+    </script>
   </body>
 </html>
