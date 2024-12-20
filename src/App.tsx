@@ -29,7 +29,7 @@ function App() {
     // refRecaptcha.current.callbacks.execute();
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    if (window.smartCaptcha) window.smartCaptcha.execute();
+    if (window.smartCaptcha) window.smartCaptcha.execute(0);
   };
 
   return resolved ? (
